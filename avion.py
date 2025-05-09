@@ -139,6 +139,6 @@ class Avion:
 
     def desocuparAvion (self):
         for sillas in self.sillas:
-            sillas.desasignarSilla  
+            sillas.desasignarSilla ()
 
             
