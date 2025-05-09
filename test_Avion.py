@@ -6,11 +6,9 @@ from Silla import Silla
 class TestAvion(unittest.TestCase):
 
     def setUp(self):
-        """ Configuración inicial para las pruebas """
         self.avion = Avion()
 
     def test_calcular_ejecutivas_ocupadas(self):
-        """ Verifica que el cálculo de sillas ejecutivas ocupadas sea correcto """
         pasajero1 = Pasajero(123456789, "Juan")
         pasajero2 = Pasajero(987654321, "Maria")
         
@@ -22,7 +20,6 @@ class TestAvion(unittest.TestCase):
         self.assertEqual(self.avion.calcularEjecutivasOcupadas(), 2)
 
     def test_buscar_pasajero_ejecutivo(self):
-        """ Verifica que se pueda buscar un pasajero en una silla ejecutiva """
         pasajero = Pasajero(123456789, "Juan")
         self.avion.sillas[0].asignarPasajero(pasajero)  # Asignar pasajero a la silla 1
 
@@ -32,13 +29,11 @@ class TestAvion(unittest.TestCase):
         self.assertEqual(silla_encontrada.darPasajero().darNombre(), "Juan")
 
     def test_buscar_silla_economica_libre(self):
-        """ Verifica que se puede buscar una silla económica libre por ubicación """
         silla_libre = self.avion.buscarSillaEconomicaLibre(Silla.ubicacion.Ventana)
         self.assertIsNotNone(silla_libre)
         self.assertEqual(silla_libre.darUbicacion(), Silla.ubicacion.Ventana)
 
     def test_asignar_silla_economica(self):
-        """ Verifica que se puede asignar una silla económica a un pasajero """
         pasajero = Pasajero(111222333, "Carlos")
         resultado = self.avion.asignarSillaEconomica(Silla.ubicacion.Ventana, pasajero)
 
@@ -54,12 +49,10 @@ class TestAvion(unittest.TestCase):
         self.assertEqual(silla_asignada.darPasajero().darNombre(), "Carlos")
 
     def test_contar_sillas_economicas_libres(self):
-        """ Verifica que se cuenten correctamente las sillas económicas libres """
         total_libres = self.avion.contarSillasEconomicasLibres()
         self.assertEqual(total_libres, 42)  # Según el diseño inicial del avión
 
     def test_anular_reserva_ejecutivo(self):
-        """ Verifica que se pueda anular la reserva de un pasajero ejecutivo """
         pasajero = Pasajero(555666777, "Ana")
         self.avion.sillas[0].asignarPasajero(pasajero)  # Asignar pasajero a la silla 1
 

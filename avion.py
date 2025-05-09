@@ -42,12 +42,14 @@ class Avion:
 
         return None
 
-    def buscarSillaEconomicaLibre(self, ubicacion):
+    def buscarSillasEconomicasLibres(self, ubicacion):
+        resultado = []
         for silla in self.sillas:
-            if silla.darClase() == Silla.clase.Economica and not silla.SillaAsignada():
-                if silla.darUbicacion() == ubicacion: 
-                    return silla
-        return None
+            if (silla.darClase() == Silla.clase.Economica and 
+                not silla.SillaAsignada() and 
+                silla.darUbicacion() == ubicacion):
+                resultado.append(silla)
+        return resultado
     
     def asignarSillaEconomica (self, pUbicacion, pPasajero):
         silla_libre = self.buscarSillaEconomicaLibre(pUbicacion)
