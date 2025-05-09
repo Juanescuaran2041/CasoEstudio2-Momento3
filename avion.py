@@ -81,7 +81,7 @@ class Avion:
     def contarVentanasEconomicas (self):
         contador = 0
         for silla in self.sillas:
-            if silla.darClase () == Silla.clase.Economica and not silla.sillaAsignada ():
+            if silla.darClase () == Silla.clase.Economica and not silla.SillaAsignada ():
                 if silla.darUbicacion () == Silla.ubicacion.Ventana:
                     contador +=1
         
