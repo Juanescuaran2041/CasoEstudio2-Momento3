@@ -89,7 +89,7 @@ class Avion:
     
     def hayDosHomonimosEconomica(self):
         nombres = set() #Uso set para crear un conjunto de datos no establecido aun
-        #con set el solo evalua si esta o no esta el nombre, sino esta lo agrega y si esta entonces no
+        #con set el solo evalua si esta o no esta el nombre, si no esta lo agrega y si esta entonces no
         #cuando no lo vuelve a agregar retorna true
         for silla in self.sillas:
 
